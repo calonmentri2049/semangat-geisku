@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Semangat UTBK!</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #c2e9fb, #a1c4fd);
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .slide-container {
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      padding: 40px;
+      width: 80%;
+      max-width: 600px;
+      text-align: center;
+      transition: all 0.5s ease;
+      animation: fadeIn 1s ease;
+    }
+
+    h1 {
+      font-size: 28px;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 20px;
+      color: #555;
+    }
+
+    button {
+      margin-top: 30px;
+      padding: 12px 24px;
+      font-size: 16px;
+      border: none;
+      background-color: #6a11cb;
+      background-image: linear-gradient(315deg, #6a11cb 0%, #2575fc 74%);
+      color: white;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background-image: linear-gradient(315deg, #2575fc 0%, #6a11cb 74%);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+<div class="slide-container" id="slideBox">
+  <h1>Hai, Teman Baikku! 👋</h1>
+  <p> cie udah mulai dak dik duk tuh! 💪 </p>
+  <p>UTBK tinggal dua minggu lagi.</p>
+  <p> jangan lupa kencengin belajar sama doanya ya !</p>
+    <p>Aku tahu kamu pasti bisa! 💪 </p>
+  <button onclick="nextSlide()">Lanjut ➡️</button>
+</div>
+
+<script>
+  const slides = [
+    {
+      title: "Hai, Teman Baikku! 👋",
+      message: "cie udah mulai dak dik duk tuh! 💪 UTBK tinggal dua minggu lagi.jangan lupa kencengin belajar sama doanya ya ! Aku tahu kamu pasti bisa! 💪"
+    },
+    {
+      title: "💡 Kata Bijak Hari Ini",
+      message: `"Orang yang berpikiran positif melihat peluang dalam setiap kesulitan." – Albert Einstein`
+    },
+    {
+      title: "🎓 Pantun & Pesan Manis",
+      message: `Ke pasar beli manggar,\nJangan lupa bawa keranjang.\nKalau kamu rajin belajar,\nPasti UTBK jadi gampang!\n\nSemangat selalu ya! Aku percaya kamu bisa ✨`
+    }
+  ];
+
+  let currentSlide = 0;
+
+  function nextSlide() {
+    currentSlide++;
+    if (currentSlide < slides.length) {
+      const slide = slides[currentSlide];
+      document.getElementById("slideBox").innerHTML = `
+        <h1>${slide.title}</h1>
+        <p>${slide.message.replace(/\n/g, "<br>")}</p>
+        <button onclick="nextSlide()">Lanjut ➡️</button>
+      `;
+    } else {
+      document.getElementById("slideBox").innerHTML = `
+        <h1>🎉 Semangat Pejuang UTBK!</h1>
+        <p> pk dan pm memang sulit tapi kalau konsisten belajar insyallah universitas impian mu akan segera di gengamanmu </p>
+        <p>Kamu sudah hebat sampai sejauh ini. Apapun hasilnya nanti, kamu tetap luar biasa 🤍</p>
+        <p> dari teman kecilmu<P><br>
+      `;
+    }
+  }
+</script>
+
+</body>
+</html>
